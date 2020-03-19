@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <h2 align="center">Works log</h2>
+  {% for i, e in enumerate(actions) %}
+  <div>
+    <h3>Action # {{ i + 1 }}</h3>
+    <table border="1">
+      <tr>
+        <th width="330">Title of activity</th>
+        <th width="120">Team leader</th>
+        <th width="100">Duration</th>
+        <th width="170">List of collaborators</th>
+        <th width="110">Is finished</th>
+      </tr>
+      <tr>
+        <td>{{ e[0] }}</td>
+        <td>{{ e[1] }}</td>
+        <td>{{ e[2] }} hours.</td>
+        <td>{{ e[3] }}</td>
+        <td> {% if e[4] %} finished {% else %} Is not finished {% endif %}
+      </tr>
+    </table>
+  </div>
+  <p></p>
+  {% endfor %}
+</div>
+{% endblock %}
